@@ -45,10 +45,10 @@ footer {
     padding-top: 108px;
 }
 
-#contacts {
+/* #contacts {
     padding-top: 108px;
     margin-top : 92px;
-}
+} */
 
 #about-us,
 #reviews,
@@ -392,97 +392,61 @@ footer {
 /* /slaider */
 
 /* contacts */
-.contacts-text {
-    font-size  : 28px;
-    font-weight: bold;
+.write-to-us__icon-text {
+    text-align: center;
+    font-size : 55px;
+    margin    : 65px 0;
 }
 
-.contacts-title {
-    font-size    : 75px;
-    margin-bottom: 35px;
-}
-
-.contacts-link-tel {
-    margin-bottom: 9px;
-}
-
-.contacts-link-tel a {
-    font-size  : 45px;
-    font-weight: bold;
-}
-
-.contacts-link-mail {
-    margin-top: 30px;
-}
-
-.contacts-link-mail a {
-    font-size  : 35px;
-    font-weight: bold;
-}
-
-.contacts-link-mail a,
-.contacts-link-tel a {
-    color          : #000;
-    text-decoration: none;
-    transition     : all 0.3s;
-}
-
-.contacts-link-tel a:hover,
-.contacts-link-tel a:focus,
-.contacts-link-mail a:hover,
-.contacts-link-mail a:focus {
-    color: rgba(252, 158, 10);
-}
-
-.contacts-subtitle {
-    font-size: 28px;
-}
-
-.contacts-icon-text {
-    text-align   : center;
-    font-size    : 55px;
-    margin-bottom: 65px;
-}
-
-.contacts .container-icon {
+.write-to-us .container-icon {
     justify-content: center;
     margin         : 0;
 }
 
-.contacts .container-icon a {
+.write-to-us .container-icon a {
     color     : #000;
     transition: all 0.3s;
 }
 
-.contacts .container-icon a:hover,
-.contacts .container-icon-header a:hover,
-.contacts .container-icon-mobile a:hover,
-.contacts .container-icon a:focus,
-.contacts .container-icon-header a:focus,
-.contacts .container-icon-mobile a:focus {
+.write-to-us .container-icon a:hover,
+.write-to-us .container-icon-header a:hover,
+.write-to-us .container-icon-mobile a:hover,
+.write-to-us .container-icon a:focus,
+.write-to-us .container-icon-header a:focus,
+.write-to-us .container-icon-mobile a:focus {
     color: rgba(252, 158, 10);
 }
 
-.contacts .container-icon a+a {
+.write-to-us .container-icon a+a {
     margin-left: 60px;
 }
 
-.map {
-    border       : 1px solid #2d2d2de5;
-    border-radius: 28px;
-    width        : 100%;
-    height       : 700px;
-    margin-top   : 105px;
-    margin-bottom: 200px;
+.write-to-us__link {
+    font-size      : 48px;
+    font-weight    : 400 !important;
+    text-decoration: none;
+    padding        : 5px 20px;
+    color          : #000;
+    border         : 1px solid #000;
+    border-radius  : 12px;
+    transition     : all 0.3s;
+
 }
 
-/* /contacts */
+.write-to-us__link:hover,
+.write-to-us__link:focus {
+    color           : #fff;
+    background-color: rgba(252, 158, 10, 0.8);
+}
+
 /* footer */
 footer {
     display         : flex;
     align-items     : center;
+    font-size       : 31px;
     height          : 161px;
     margin-top      : 160px;
+    color           : rgba(0, 0, 0, 0.6);
     background-color: rgba(252, 158, 10, 0.8);
 }
 
@@ -493,8 +457,7 @@ footer .container-item {
 }
 
 footer span {
-    font-size: 31px;
-    color    : rgba(0, 0, 0, 0.6);
+    display: inline-block;
 }
 
 footer .container-icon {
@@ -509,32 +472,10 @@ footer .container-icon {
     }
 }
 
-@media (min-width: 1399.98px) and (max-width: 1524.98px) {
-    .nav-list .nav-link {
-        padding: 0 20px;
-    }
-}
-
 /* // `xxl` applies to x-large devices (large desktops, less than 1400px) */
 @media (max-width: 1399.99px) {
-
-
-
     .item-logo {
         margin-right: 26px;
-    }
-
-    .nav-list .nav-link {
-        padding: 0 10px;
-    }
-
-    .contacts .w-500 {
-        max-width: 100%;
-    }
-
-    .contacts-title {
-        font-size    : 60px;
-        margin-bottom: 0;
     }
 
     .container-icon-header {
@@ -552,7 +493,7 @@ footer .container-icon {
         font-size: 65px;
     }
 
-    footer span {
+    footer {
         font-size: 24px;
     }
 
@@ -585,7 +526,6 @@ footer .container-icon {
     .help .img-container {
         background: linear-gradient(180deg, rgb(252, 158, 10) 50%, rgba(246, 246, 246, 0) 85%);
     }
-
 }
 
 /* // `lg` applies to medium devices (tablets, less than 992px) */
@@ -594,10 +534,6 @@ footer .container-icon {
     .we-greet-you {
         margin-top   : 150px;
         margin-bottom: 0;
-    }
-
-    .contacts-title {
-        margin-bottom: 40px;
     }
 
     .we-greet-you .text {
@@ -611,10 +547,6 @@ footer .container-icon {
     .item-logo-text {
         font-size  : 24px;
         font-weight: 500;
-    }
-
-    .map {
-        height: 400px;
     }
 
     /* burger */
@@ -709,23 +641,6 @@ footer .container-icon {
         justify-content: center;
         margin-top     : 20px;
     }
-
-    /* .compiling .img-container .img-position {
-        bottom: 150px;
-        left  : 210px;
-    }
-
-    .share .img-container .img-position {
-        bottom: 100px;
-        right : 225px;
-    }
-
-    .help .img-container .img-position {
-        bottom: 50px;
-        left  : 160px;
-    } */
-
-
 }
 
 /* // `md` applies to small devices (landscape phones, less than 768px) */
@@ -735,17 +650,20 @@ footer .container-icon {
         padding: 5px 0;
     }
 
+    footer {
+        font-size: 21px;
+    }
+
     footer .container-icon {
         margin-left: 0;
         margin-top : 20px;
     }
 
-    #contacts {
-        margin-top: 0;
-    }
-
-    .map {
-        margin-bottom: 50px;
+    footer .container-item {
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+        flex-direction : column;
     }
 
     h1 {
@@ -756,34 +674,14 @@ footer .container-icon {
         font-size: 14px;
     }
 
-    footer span {
-        font-size: 21px;
-    }
-
-    .contacts-subtitle {
-        font-size: 21px;
-    }
-
     .we-greet-you .text {
         font-size : 24px;
         margin-top: 45px;
     }
 
-    .contacts-title {
-        font-size    : 40px;
-        margin-bottom: 20px;
-    }
-
     .swiper-prev,
     .swiper-next {
         display: none;
-    }
-
-    footer .container-item {
-        display        : flex;
-        align-items    : center;
-        justify-content: center;
-        flex-direction : column;
     }
 
     .btn-position {
@@ -799,15 +697,27 @@ footer .container-icon {
 
 /* // `sm` applies to x-small devices (portrait phones, less than 576px) */
 @media (max-width: 576px) {
-
-    h1,
-    .contacts-link-tel a,
-    .contacts-icon-text {
+    h1 {
         font-size: 28px;
     }
 
-    .contacts-icon-text {
+    .write-to-us__link {
+        font-size: 28px;
+        border-radius: 6px;
+    }
+
+    .write-to-us__icon-text {
+        font-size    : 28px;
         margin-bottom: 20px;
+    }
+
+    .write-to-us .container-icon a+a {
+        margin-left: 0;
+    }
+
+    .write-to-us .container-icon a svg:last-child {
+        width : 80px;
+        height: 40px;
     }
 
     .title-slaider {
@@ -828,6 +738,12 @@ footer .container-icon {
 
     footer {
         margin-top: 100px;
+    }
+
+    footer div:first-child {
+        display       : flex;
+        flex-direction: column;
+        align-items   : center;
     }
 
     .who-are-we {
@@ -856,10 +772,6 @@ footer .container-icon {
     .text-subtitle {
         font-size : 14px;
         margin-top: 15px;
-    }
-
-    .contacts-title {
-        font-size: 40px;
     }
 
     .contacts .container-icon svg {
