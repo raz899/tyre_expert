@@ -225,7 +225,7 @@
                                     srcset="img/Vladimir-Vavilov.webp 1x, img/Vladimir-Vavilov@2x.webp 2x"
                                     alt="Владимир Вавилов">
                                 <button class="btn p-0 btn-position" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop">
+                                    data-bs-target="#vladimir-vavilov">
                                     <svg width="128" height="92">
                                         <use href="./svg/common.bundle.svg#youtube-btn"></use>
                                     </svg>
@@ -252,7 +252,7 @@
                                     srcset="./img/Andrey-Nazarov.webp 1x, ./img/Andrey-Nazarov@2x.webp 2x"
                                     alt="Андрей Назаров">
                                 <button class="btn p-0 btn-position" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop">
+                                    data-bs-target="#andrey-nazarov">
                                     <svg width="128" height="92">
                                         <use href="./svg/common.bundle.svg#youtube-btn"></use>
                                     </svg>
@@ -546,20 +546,40 @@
             </div>
         </footer>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+    <!-- Modal Владимир Вавилов -->
+    <div class="modal fade" id="vladimir-vavilov" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/hvL1339luv0?si=4WfUrtjtYQ_DI8-w"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Андрей Назаров -->
+    <div class="modal fade" id="andrey-nazarov" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/2yJgwwDcgV8?si=F403Mj4y0IVfo7-l"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="modal-footer">
                 </div>
             </div>
         </div>
