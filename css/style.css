@@ -170,7 +170,7 @@ footer {
 .container-icon a:focus,
 .container-icon-header a:focus,
 .container-icon-mobile a:focus {
-    color: rgba(255, 255, 255);
+    color: #000;
 }
 
 .container-icon a+a,
@@ -455,8 +455,7 @@ footer {
 
 .write-to-us__link:hover,
 .write-to-us__link:focus {
-    color           : #fff;
-    background-color: rgba(252, 158, 10, 0.8);
+    color           : inherit;
 }
 
 /* /write-to-us */
