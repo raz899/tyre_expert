@@ -45,11 +45,6 @@ footer {
     padding-top: 108px;
 }
 
-/* #contacts {
-    padding-top: 108px;
-    margin-top : 92px;
-} */
-
 #about-us,
 #reviews,
 #interview {
@@ -291,6 +286,7 @@ footer {
 }
 
 /* /content */
+
 /* slider */
 .sliders {
     overflow: hidden;
@@ -315,10 +311,14 @@ footer {
 }
 
 .swiper-slide a span {
-    font-weight: bold;
-    font-size  : 30px;
-    margin-top : 15px;
-    color      : #000;
+    font-weight       : bold;
+    font-size         : 30px;
+    margin-top        : 15px;
+    color             : #000;
+    display           : -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow          : hidden;
 }
 
 .slider-item {
@@ -391,7 +391,7 @@ footer {
 
 /* /slaider */
 
-/* contacts */
+/* write-to-us */
 .write-to-us__icon-text {
     text-align: center;
     font-size : 55px;
@@ -438,6 +438,8 @@ footer {
     color           : #fff;
     background-color: rgba(252, 158, 10, 0.8);
 }
+
+/* /write-to-us */
 
 /* footer */
 footer {
@@ -674,6 +676,11 @@ footer .container-icon {
         font-size: 14px;
     }
 
+    .swiper-slide a span {
+        font-size : 24px;
+        margin-top: 10px;
+    }
+
     .we-greet-you .text {
         font-size : 24px;
         margin-top: 45px;
@@ -702,7 +709,7 @@ footer .container-icon {
     }
 
     .write-to-us__link {
-        font-size: 28px;
+        font-size    : 28px;
         border-radius: 6px;
     }
 
