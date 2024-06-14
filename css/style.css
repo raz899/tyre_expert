@@ -528,6 +528,11 @@ footer .container-icon {
     .help .img-container {
         background: linear-gradient(180deg, rgb(252, 158, 10) 50%, rgba(246, 246, 246, 0) 85%);
     }
+
+    .help .img-container .img-position {
+        bottom: 50px;
+        left  : 160px;
+    }
 }
 
 /* // `lg` applies to medium devices (tablets, less than 992px) */
@@ -643,6 +648,7 @@ footer .container-icon {
         justify-content: center;
         margin-top     : 20px;
     }
+
 }
 
 /* // `md` applies to small devices (landscape phones, less than 768px) */
