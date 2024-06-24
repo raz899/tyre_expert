@@ -50,8 +50,8 @@ Object.entries(modals).forEach(function ([modalId, videoUrl]) {
     // Создаем iframe по клику
     btn.addEventListener('click', function () {
         const iframeAdd = document.createElement('iframe');
-        iframeAdd.width = "100%";
-        iframeAdd.height = "100%";
+        iframeAdd.width = "560";
+        iframeAdd.height = "315";
         iframeAdd.src = modals[modalId];
         iframeAdd.allow = "autoplay";
         modal.querySelector('.video-youtube').appendChild(iframeAdd);
