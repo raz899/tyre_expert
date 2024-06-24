@@ -22,95 +22,6 @@ $menu.addEventListener('click', function (e) {
     }
 });
 
-
-// Рейтинг
-const swiperRatings = new Swiper('.js-swiper-ratings', {
-    // Optional parameters
-    direction: 'horizontal',
-    // Navigation arrows
-    navigation: {
-        nextEl: '.js-swiper-ratings-next',
-        prevEl: '.js-swiper-ratings-prev',
-    },
-    // Default parameters
-    slidesPerView: 1,
-    spaceBetween: 10,
-    // Responsive breakpoints
-    breakpoints: {
-
-        320: {
-            slidesPerView: 1.5,
-            spaceBetween: 20
-        },
-
-        767: {
-            slidesPerView: 2.5,
-            spaceBetween: 30
-        },
-
-        1024: {
-            slidesPerView: 2.5,
-            spaceBetween: 80
-        }
-    }
-});
-// Обзоры
-const swiperReviews = new Swiper('.js-swiper-reviews', {
-    // Optional parameters
-    direction: 'horizontal',
-    // Navigation arrows
-    navigation: {
-        nextEl: '.js-swiper-reviews-next',
-        prevEl: '.js-swiper-reviews-prev',
-    },
-    // Default parameters
-    slidesPerView: 1,
-    spaceBetween: 10,
-    // Responsive breakpoints
-    breakpoints: {
-        320: {
-            slidesPerView: 1.5,
-            spaceBetween: 20
-        },
-        767: {
-            slidesPerView: 2.5,
-            spaceBetween: 30
-        },
-        1024: {
-            slidesPerView: 2.5,
-            spaceBetween: 80
-        }
-    }
-});
-
-// Обзоры
-const swiperInterview = new Swiper('.js-swiper-interview', {
-    // Optional parameters
-    direction: 'horizontal',
-    // Navigation arrows
-    navigation: {
-        nextEl: '.js-swiper-interview-next',
-        prevEl: '.js-swiper-interview-prev',
-    },
-    // Default parameters
-    slidesPerView: 1,
-    spaceBetween: 10,
-    // Responsive breakpoints
-    breakpoints: {
-        320: {
-            slidesPerView: 1.5,
-            spaceBetween: 20
-        },
-        767: {
-            slidesPerView: 2.5,
-            spaceBetween: 30
-        },
-        1024: {
-            slidesPerView: 2.5,
-            spaceBetween: 80
-        }
-    }
-});
 //  параллакс эффект для фото
 document.addEventListener('scroll', function (e) {
     const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
@@ -125,4 +36,92 @@ document.addEventListener('scroll', function (e) {
         });
     }
 });
+
+// youtube
+
+const KEY = 'AIzaSyA3CRkcmQr4tWHX4Ned4IfQFXGSP3ADxYI';
+const CHANNEL_ID = 'UCby9SHJ564ztNGcC3mUdRgA';
+
+const RATINGS = [
+    'PLC59yHF4Ixi9FQb8z8D5NlZOqwU1KkKaF',
+    'PLC59yHF4Ixi9p_lgjh70kQe8uvBs1YIRk',
+    'PLC59yHF4Ixi_MPQ1yzCe1WHc2S5RAv_IG',
+    'PLC59yHF4Ixi8e0-Cvpaa6TFRArDxTgC48',
+    'PLC59yHF4Ixi_Yfv9UWQGb8-m6zgFwXexu',
+    'PLC59yHF4Ixi9gMk53jFHOgH-BQqt7K0dr',
+    'PLC59yHF4Ixi8B3KQ5kXHXn1_7SZKU1lx1',
+    'PLC59yHF4Ixi_smMw8dnB0FuDDww24Dna1',
+    'PLC59yHF4Ixi8aVuCGbX4u0q-64PcQVLkh',
+    'PLC59yHF4Ixi87I3ZEvs93lugULlTQbmHs',
+];
+const REVIEWS = [
+    'PLC59yHF4Ixi9efJgoXfdzmNIFfXtX3DYe',
+    'PLC59yHF4Ixi-UfCICDmahbE1RJq6r4CPo',
+    'PLC59yHF4Ixi9ywF5P28zcSyqkICZuWz-Z',
+    'PLC59yHF4Ixi835BiR9jUpDQ0m7OFRq18u',
+    'PLC59yHF4Ixi8uhntBmBSOK0Z4Es3aSwpi',
+    'PLC59yHF4Ixi-3cHoo1eq-h7DNrmPw9BUu',
+];
+const INTERVIEW = [
+    'PLC59yHF4Ixi9l7m1IHVWj0GSlXkYnJHVN',
+    'PLC59yHF4Ixi8VEOkHmc3CUe7aAjB78LEA',
+    'PLC59yHF4Ixi8wJdQcDWkN3syg7sUgyqfC',
+    'PLC59yHF4Ixi-Gzc7A-dKzJu5SQllZPDxo',
+];
+
+loadPlaylists(KEY, RATINGS, 'ratings');
+loadPlaylists(KEY, REVIEWS, 'reviews');
+loadPlaylists(KEY, INTERVIEW, 'interview');
+
+
+async function loadPlaylists(youtubeKey, plArray, prefix) {
+    const $swiperContainer = document.querySelector(`.js-swiper-${prefix} .swiper-wrapper`);
+
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/playlists?key=${youtubeKey}&part=id,snippet,contentDetails&fields=items(id,contentDetails,snippet(title,channelId,channelTitle))&id=${plArray.join()}`);
+    const playlists = await response.json();
+
+    for (const el of playlists.items) {
+        const playlistItemResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${youtubeKey}&part=id,snippet,contentDetails&playlistId=${el.id}`);
+        const playlistItem = await playlistItemResponse.json();
+        $swiperContainer.insertAdjacentHTML('afterbegin', `
+            <div class="swiper-slide user-select-none">
+                <a href="https://www.youtube.com/playlist?list=${el.id}" target="_blank">
+                    <div class="slider-item">
+                        <img class="w-100 img-position" src="${playlistItem.items[0].snippet.thumbnails.maxres.url}">
+                        <div class="slider-item-quantity">${el.contentDetails.itemCount} видео</div>
+                    </div>
+                    <span>${el.snippet.title}</span>
+                </a>
+            </div>
+        `);
+    }
+
+    const swiperReviews = new Swiper(`.js-swiper-${prefix}`, {
+        // Optional parameters
+        direction: 'horizontal',
+        // Navigation arrows
+        navigation: {
+            nextEl: `.js-swiper-${prefix}-next`,
+            prevEl: `.js-swiper-${prefix}-prev`,
+        },
+        // Default parameters
+        slidesPerView: 1,
+        spaceBetween: 10,
+        // Responsive breakpoints
+        breakpoints: {
+            320: {
+                slidesPerView: 1.5,
+                spaceBetween: 20
+            },
+            767: {
+                slidesPerView: 2.5,
+                spaceBetween: 30
+            },
+            1024: {
+                slidesPerView: 2.5,
+                spaceBetween: 80
+            }
+        }
+    });
+}
 

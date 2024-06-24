@@ -295,6 +295,9 @@ footer {
 /* /content */
 
 /* slider */
+.swiper:not(.swiper-initialized) {
+    display: none;
+}
 .sliders {
     overflow: hidden;
     color   : #000;
@@ -322,10 +325,10 @@ footer {
     font-size         : 30px;
     margin-top        : 15px;
     color             : #000;
-    display           : -webkit-box;
+    /* display           : -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    overflow          : hidden;
+    overflow          : hidden; */
 }
 
 
