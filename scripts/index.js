@@ -126,3 +126,32 @@ document.addEventListener('scroll', function (e) {
     }
 });
 
+
+// modal iframe youTybe
+const modals = {
+    'vladimir-vavilov': 'https://www.youtube.com/embed/Oc6XOEOA6oI?si=lS9RAxCHD5TBxWee&autoplay=1',
+    'andrey-nazarov': 'https://www.youtube.com/embed/538HPGAZiXg?si=J-t4bVlPrNWJYX7F&autoplay=1',
+};
+
+Object.entries(modals).forEach(function ([modalId, videoUrl]) {
+    const modal = document.getElementById(modalId);
+    const btn = document.querySelector(`[data-bs-target="#${modalId}"]`);
+
+    // Создаем iframe по клику
+    btn.addEventListener('click', function () {
+        const iframeAdd = document.createElement('iframe');
+        iframeAdd.width = "100%";
+        iframeAdd.height = "100%";
+        iframeAdd.src = modals[modalId];
+        iframeAdd.allow = "autoplay";
+        modal.querySelector('.video-youtube').appendChild(iframeAdd);
+    });
+
+    // Удаляем iframe при закрытии modal
+    modal.addEventListener('hidden.bs.modal', function () {
+        const iframe = modal.querySelector('iframe');
+        if (iframe) {
+            iframe.parentNode.removeChild(iframe);
+        }
+    });
+});
