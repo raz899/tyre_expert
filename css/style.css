@@ -41,6 +41,35 @@ footer {
     flex: 0 0 auto;
 }
 
+#live {
+    padding-top: 108px;
+}
+
+#live h3 {
+    margin-right: 20px;
+    font-size: 45px;
+}
+
+#live .swiper-prev, #live .swiper-next {
+    width: 54px;
+    height: 54px;
+    margin-left: 25px;
+}
+
+.swiper-live .swiper-slide a img {
+    border-radius: 17px;
+    margin-bottom: 10px;
+}
+
+.swiper-live .swiper-slide a span {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 16px;
+    margin-top: 0;
+}
+
 #rating {
     padding-top: 108px;
 }

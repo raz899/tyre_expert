@@ -61,7 +61,7 @@ Object.entries(modals).forEach(function ([modalId, videoUrl]) {
     modal.addEventListener('hidden.bs.modal', function () {
         const iframe = modal.querySelector('iframe');
         if (iframe) {
-            iframe.parentNode.removeChild(iframe);
+            iframe.remove();
         }
     });
 });
@@ -102,6 +102,51 @@ loadPlaylists(KEY, RATINGS, 'ratings');
 loadPlaylists(KEY, REVIEWS, 'reviews');
 loadPlaylists(KEY, INTERVIEW, 'interview');
 
+loadShorts(KEY);
+
+async function loadShorts(youtubeKey) {
+    const $swiperContainer = document.querySelector(`.js-swiper-live .swiper-wrapper`);
+
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${KEY}&channelId=${CHANNEL_ID}&type=video&part=snippet&videoDuration=short&order=date&maxResults=20`);
+    const playlists = await response.json();
+
+    for (const el of playlists.items) {
+        console.log(el);
+        $swiperContainer.insertAdjacentHTML('beforeend', `
+            <div class="swiper-slide user-select-none">
+                <a href="https://www.youtube.com/shorts/${el.id.videoId}" target="_blank" class="d-flex flex-column short js-short">
+                    <img src="https://i.ytimg.com/vi/${el.id.videoId}/oar2.jpg" width="210" height="370">
+                    <span>${el.snippet.title}</span>
+                </a>
+            </div>
+        `);
+    }
+
+    const swiperShorts = new Swiper(`.js-swiper-live`, {
+        // Optional parameters
+        direction: 'horizontal',
+        // Navigation arrows
+        navigation: {
+            nextEl: `.js-swiper-live-next`,
+            prevEl: `.js-swiper-live-prev`,
+        },
+        // Default parameters
+        slidesPerView: 1,
+        spaceBetween: 15,
+        // Responsive breakpoints
+        breakpoints: {
+            320: {
+                slidesPerView: 1.5,
+            },
+            767: {
+                slidesPerView: 4.5,
+            },
+            1024: {
+                slidesPerView: 6.5,
+            }
+        }
+    });
+}
 
 async function loadPlaylists(youtubeKey, plArray, prefix) {
     const $swiperContainer = document.querySelector(`.js-swiper-${prefix} .swiper-wrapper`);
